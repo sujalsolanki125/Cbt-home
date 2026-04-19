@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const LAUNCH_DATE = new Date(Date.now() + 90 * 86400000);
+const LAUNCH_DATE = new Date("2026-06-21T00:00:00");
 
 interface TimeLeft {
   days: string;
@@ -43,14 +43,13 @@ export function Countdown() {
   const [time, setTime] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    // Set the initial value on the client to avoid SSR/client mismatch
     setTime(compute());
     const id = setInterval(() => setTime(compute()), 1000);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-10">
       <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[hsl(var(--muted-foreground))] mb-2 text-right">
         // Time to launch
       </p>
@@ -64,7 +63,7 @@ export function Countdown() {
       <div className="border-2 border-t-0 border-[hsl(var(--border))] h-1.5 bg-[hsl(var(--muted))] overflow-hidden">
         <div
           className="h-full bg-[var(--brand-yellow)]"
-          style={{ width: "100%", animation: "drain 7776000s linear forwards" }}
+          style={{ width: "100%", animation: "drain 3628800s linear forwards" }}
         />
       </div>
       <style>{`@keyframes drain { to { width: 0% } }`}</style>

@@ -56,14 +56,14 @@ const FOUNDERS = [
     name: "Sujal Solanki",
     image: "/sujal.jpg",
     email: "sujalkumarofficial2005@gmail.com",
-    linkedin: "https://www.linkedin.com/in/sujalkumar-solanki/",
+    // linkedin: "https://www.linkedin.com/in/sujalkumar-solanki/",
   },
   {
     initials: "KS",
     name: "Kamlesh Suthar",
     image: "/kamlesh.jpg",
     email: "kamleshsuthar.dev@gmail.com",
-    linkedin: "https://www.linkedin.com/in/kamlesh-suthar/",
+    // linkedin: "https://www.linkedin.com/in/kamlesh-suthar/",
   },
 ];
 
@@ -116,9 +116,9 @@ export default function Home() {
             <span className="font-mono text-[clamp(0.5rem,0.85vw,0.6rem)] tracking-[0.22em] uppercase text-[hsl(var(--muted-foreground))] hidden sm:block">
               v1.0.0-alpha
             </span>
-            <span className="font-mono text-[clamp(0.5rem,0.85vw,0.6rem)] tracking-[0.22em] uppercase text-[hsl(var(--muted-foreground))] hidden sm:block">
+            {/* <span className="font-mono text-[clamp(0.5rem,0.85vw,0.6rem)] tracking-[0.22em] uppercase text-[hsl(var(--muted-foreground))] hidden sm:block">
               GATE 2026 Style
-            </span>
+            </span> */}
             <Badge variant="default" className="gap-1.5 font-mono text-[10px] tracking-widest rounded-none">
               <span className="size-1.5 rounded-full bg-[var(--brand-black)] animate-pulse" />
               Building
@@ -133,9 +133,9 @@ export default function Home() {
           {/* ── LEFT ── */}
           <div className="flex flex-col">
             {/* Section label */}
-            <p className="font-mono text-[clamp(0.5rem,0.85vw,0.6rem)] tracking-[0.32em] uppercase text-[var(--brand-yellow-dark)] mb-[clamp(12px,2.5vh,20px)] animate-in fade-in slide-in-from-bottom-2 duration-500 delay-150">
+            {/* <p className="font-mono text-[clamp(0.5rem,0.85vw,0.6rem)] tracking-[0.32em] uppercase text-[var(--brand-yellow-dark)] mb-[clamp(12px,2.5vh,20px)] animate-in fade-in slide-in-from-bottom-2 duration-500 delay-150">
               // Q.01 &nbsp;·&nbsp; Section: Launch &nbsp;·&nbsp; Marks: ∞
-            </p>
+            </p> */}
 
             {/* Headline */}
             <div className="overflow-hidden">
@@ -226,12 +226,13 @@ export default function Home() {
           </div>
 
           {/* ── RIGHT ── */}
-          <div className="flex flex-col gap-5 animate-in fade-in duration-700 delay-500">
-            {/* Countdown */}
+          <div className="flex h-full flex-col items-start gap-5 animate-in fade-in duration-700 delay-500 ">
             <Countdown />
+            {/* Countdown */}
+          
 
             {/* Founders */}
-            <div>
+            {/* <div>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[hsl(var(--muted-foreground))] mb-2">
                 // Founders
               </p>
@@ -273,10 +274,10 @@ export default function Home() {
                   </Card>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Pills */}
-            <div>
+            {/* <div>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[hsl(var(--muted-foreground))] mb-2">
                 // Features
               </p>
@@ -298,7 +299,7 @@ export default function Home() {
                   </Badge>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </main>
 
