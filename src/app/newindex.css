@@ -312,7 +312,7 @@
   aspect-ratio: 0.8;
   border-radius: 28px;
   overflow: hidden;
-  transform: rotate(-7deg) translateY(8px);
+  transform: rotate(-7deg) translateY(18px);
   box-shadow:
     0 30px 70px rgba(24, 32, 45, 0.33),
     0 0 0 1px rgba(62, 72, 83, 0.36);

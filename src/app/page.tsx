@@ -123,7 +123,7 @@ export default function Home() {
                   width={1200}
                   height={1700}
                   priority
-                  className="h-auto w-full object-contain lg:-translate-y-7"
+                  className="h-auto w-full object-contain lg:-translate-y-1"
                 />
               </div>
             </div>
