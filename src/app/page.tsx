@@ -15,7 +15,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { Countdown } from "@/components/Countdown";
 import { FluidShaderBackground } from "@/components/FluidShaderBackground";
 import { Logo } from "@/components/Logo";
@@ -95,19 +94,19 @@ export default function Home() {
         <main className="space-y-(--section-gap) py-8 sm:py-10">
           <section className="grid gap-12 justify-items-center">
             <div className="space-y-(--hero-gap) text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <div className="brand-surface inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] px-4 py-2 text-[11px] shadow-(--shadow-soft)">
+              <div className="brand-surface inline-flex max-w-full items-center gap-2 rounded-full border border-[hsl(var(--border))] px-3 py-2 text-[10px] shadow-(--shadow-soft) sm:px-4 sm:text-[11px]">
                 <span className="size-2 rounded-full bg-(--brand-yellow) shadow-[0_0_24px_var(--brand-yellow)]" />
-                <span className="font-mono uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
+                <span className="min-w-0 font-mono uppercase tracking-[0.14em] text-[hsl(var(--muted-foreground))] sm:tracking-[0.3em]">
                   Multi-Exam Computer-Based Testing Platform
                 </span>
               </div>
 
               <div className="space-y-6">
-                <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[hsl(var(--muted-foreground))]">
+                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[hsl(var(--muted-foreground))] sm:text-[11px] sm:tracking-[0.32em]">
                   // premium launch for students and institutes
                 </p>
-                <h1 className="text-5xl font-semibold leading-[0.9] tracking-[-0.07em] sm:text-6xl lg:text-7xl xl:text-8xl">
-                  <span className="block whitespace-nowrap">Built for Serious Exam Practice.</span>
+                <h1 className="text-center text-[clamp(2.25rem,11vw,4rem)] font-semibold leading-[0.95] tracking-[-0.045em] sm:text-6xl sm:tracking-[-0.07em] lg:text-7xl xl:text-8xl">
+                  <span className="block sm:whitespace-nowrap">Built for Serious Exam Practice.</span>
                   <span className="block">Coming Soon.</span>
                 </h1>
               </div>
