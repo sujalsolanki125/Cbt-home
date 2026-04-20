@@ -93,8 +93,8 @@ export default function Home() {
         </header>
 
         <main className="space-y-(--section-gap) py-8 sm:py-10">
-          <section className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:gap-14">
-            <div className="space-y-(--hero-gap) animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <section className="grid gap-12 justify-items-center">
+            <div className="space-y-(--hero-gap) text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
               <div className="brand-surface inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] px-4 py-2 text-[11px] shadow-(--shadow-soft)">
                 <span className="size-2 rounded-full bg-(--brand-yellow) shadow-[0_0_24px_var(--brand-yellow)]" />
                 <span className="font-mono uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
@@ -106,26 +106,12 @@ export default function Home() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[hsl(var(--muted-foreground))]">
                   // premium launch for students and institutes
                 </p>
-                <h1 className="max-w-[14ch] text-5xl font-semibold leading-[0.88] tracking-[-0.07em] sm:text-6xl lg:text-7xl xl:text-8xl">
-                  <span className="block">Built for Serious</span>
-                  <span className="block">Exam Practice.</span>
+                <h1 className="text-5xl font-semibold leading-[0.9] tracking-[-0.07em] sm:text-6xl lg:text-7xl xl:text-8xl">
+                  <span className="block whitespace-nowrap">Built for Serious Exam Practice.</span>
                   <span className="block">Coming Soon.</span>
                 </h1>
               </div>
 
-            </div>
-
-            <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 lg:pt-4">
-              <div className="mx-auto w-full max-w-135">
-                <Image
-                  src="/hero.png"
-                  alt="Proctera hero interface preview"
-                  width={1200}
-                  height={1700}
-                  priority
-                  className="h-auto w-full object-contain lg:-translate-y-1"
-                />
-              </div>
             </div>
           </section>
 
