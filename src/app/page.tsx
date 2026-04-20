@@ -1,7 +1,13 @@
 import Image from "next/image";
-import { Logo } from "@/components/Logo";
+import {
+  ArrowUpRight,
+  BarChart3,
+  FileText,
+  MonitorCheck,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,324 +16,273 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Countdown } from "@/components/Countdown";
+import { FluidShaderBackground } from "@/components/FluidShaderBackground";
+import { Logo } from "@/components/Logo";
 import { QWatermark } from "@/components/QWatermark";
-import {
-  Mail,
-  Linkedin,
-  ArrowUpRight,
-  MonitorCheck,
-  Users,
-  FileText,
-  BarChart3,
-} from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const SERVICES = [
   {
-    tag: "Service 01",
+    tag: "Launch 01",
     icon: MonitorCheck,
-    title: "White-Label Testing Engine",
-    desc: "Fully branded CBT platform — your logo, your domain, your experience. GATE 2026-style UI powered by Proctera infrastructure.",
+    title: "Real CBT Exam Simulation",
+    desc: "Students will practice in a real exam flow with timer, palette navigation, and frictionless autosave.",
   },
   {
-    tag: "Service 02",
+    tag: "Launch 02",
     icon: Users,
-    title: "Student Management",
-    desc: "Institutes → Batches → Students hierarchy with role-based access, performance history, and configurable attempt limits.",
+    title: "Student + Institute Workspace",
+    desc: "Separate experiences for students and admins so each role sees the right controls at the right time.",
   },
   {
-    tag: "Service 03",
+    tag: "Launch 03",
     icon: FileText,
-    title: "Test Management",
-    desc: "Create and schedule MCQ, MSQ, and NAT exams with LaTeX math rendering, server-side scoring, and deterministic results.",
+    title: "Insight-Driven Analytics",
+    desc: "Score trends, section-level strengths, and time behavior analytics designed for measurable progress.",
   },
   {
-    tag: "Service 04",
+    tag: "Launch 04",
     icon: BarChart3,
-    title: "Live Monitoring & Reports",
-    desc: "Real-time exam surveillance, server-side timers with zero client trust, and detailed batch-level statistics.",
+    title: "Controlled Institutional Testing",
+    desc: "Institutes get structured scheduling, test governance, and confident oversight from one clean dashboard.",
   },
 ];
 
 const FOUNDERS = [
   {
-    initials: "SS",
     name: "Sujal Solanki",
     image: "/sujal.jpg",
     email: "sujalkumarofficial2005@gmail.com",
-    // linkedin: "https://www.linkedin.com/in/sujalkumar-solanki/",
   },
   {
-    initials: "KS",
     name: "Kamlesh Suthar",
     image: "/kamlesh.jpg",
     email: "kamleshsuthar.dev@gmail.com",
-    // linkedin: "https://www.linkedin.com/in/kamlesh-suthar/",
   },
 ];
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen flex flex-col ruled-bg">
-      {/* ── Border frame ── */}
-      <div className="fixed inset-0 pointer-events-none z-20">
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[hsl(var(--foreground))] dark:bg-[var(--brand-yellow)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[hsl(var(--foreground))] dark:bg-[var(--brand-yellow)]" />
-        <div className="absolute top-0 bottom-0 left-0 w-[3px] bg-[hsl(var(--foreground))] dark:bg-[var(--brand-yellow)]" />
-        <div className="absolute top-0 bottom-0 right-0 w-[3px] bg-[hsl(var(--foreground))] dark:bg-[var(--brand-yellow)]" />
-      </div>
-
-      {/* ── Yellow left stripe ── */}
-      <div className="fixed left-0 top-0 bottom-0 w-[5px] bg-[var(--brand-yellow)] z-10" />
-
-      {/* ── Bubble watermark ── */}
+    <div className="relative min-h-screen overflow-hidden">
+      <FluidShaderBackground />
+      <div className="scene-grid pointer-events-none absolute inset-0 opacity-35 dark:opacity-70" aria-hidden />
+      <div className="hero-orb hero-orb-left pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full" aria-hidden />
+      <div className="hero-orb hero-orb-right pointer-events-none absolute -right-32 top-12 h-96 w-96 rounded-full" aria-hidden />
       <div
-        className="fixed right-[3vw] top-1/2 -translate-y-1/2 grid gap-[9px] opacity-[0.07] pointer-events-none z-[1]"
-        style={{ gridTemplateColumns: "repeat(4, 24px)" }}
+        className="hero-orb hero-orb-bottom pointer-events-none absolute -bottom-36 left-1/3 h-112 rounded-full"
+        style={{ width: "28rem" }}
         aria-hidden
-      >
-        {Array.from({ length: 56 }).map((_, i) => (
-          <div
-            key={i}
-            className={`w-6 h-6 rounded-full border-2 border-[hsl(var(--foreground))] ${
-              i % 3 === 0 ? "bg-[hsl(var(--foreground))]" : ""
-            }`}
-          />
-        ))}
-      </div>
+      />
 
-      {/* ── Q number watermark ── */}
       <QWatermark />
 
-      {/* ── Page ── */}
-      <div className="relative z-10 flex flex-col flex-1 min-h-screen px-[clamp(20px,5vw,60px)] pl-[clamp(24px,6vw,72px)] py-[clamp(20px,4vw,40px)]">
-
-        {/* HEADER */}
-        <header className="flex items-center justify-between flex-wrap gap-3 pb-[clamp(14px,2.5vw,22px)] border-b-2 border-[hsl(var(--border))] animate-in fade-in duration-500">
-          <div className="flex flex-col gap-0.5">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-310 flex-col px-5 py-5 sm:px-7 lg:px-10">
+        <header className="flex flex-wrap items-center justify-between gap-4 border-b border-[hsl(var(--border))]/70 pb-5 pt-2 backdrop-blur-sm animate-in fade-in duration-500">
+          <div className="flex items-center gap-4">
             <Logo />
-            <span className="font-mono text-[clamp(0.48rem,0.9vw,0.6rem)] tracking-[0.28em] uppercase text-[hsl(var(--muted-foreground))]">
-              B2B Testing Infrastructure
-            </span>
           </div>
 
-          <div className="flex items-center gap-[clamp(10px,2vw,24px)] flex-wrap">
-            <span className="font-mono text-[clamp(0.5rem,0.85vw,0.6rem)] tracking-[0.22em] uppercase text-[hsl(var(--muted-foreground))] hidden sm:block">
-              v1.0.0-alpha
-            </span>
-            {/* <span className="font-mono text-[clamp(0.5rem,0.85vw,0.6rem)] tracking-[0.22em] uppercase text-[hsl(var(--muted-foreground))] hidden sm:block">
-              GATE 2026 Style
-            </span> */}
-            <Badge variant="default" className="gap-1.5 font-mono text-[10px] tracking-widest rounded-none">
-              <span className="size-1.5 rounded-full bg-[var(--brand-black)] animate-pulse" />
-              Building
+          <div className="flex items-center gap-3">
+            <Badge className="brand-surface gap-2 border border-[hsl(var(--border))] font-mono text-[10px] tracking-[0.22em] text-[hsl(var(--foreground))] shadow-[0_12px_30px_rgba(0,0,0,0.08)] dark:text-[hsl(var(--foreground))]">
+              <span className="size-2 rounded-full bg-(--brand-yellow) shadow-[0_0_18px_var(--brand-yellow)]" />
+              Launching soon
             </Badge>
             <ThemeToggle />
           </div>
         </header>
 
-        {/* BODY */}
-        <main className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-[clamp(24px,4vw,52px)] items-center py-[clamp(16px,3vh,32px)]">
+        <main className="space-y-(--section-gap) py-8 sm:py-10">
+          <section className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:gap-14">
+            <div className="space-y-(--hero-gap) animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <div className="brand-surface inline-flex items-center gap-2 rounded-full border border-[hsl(var(--border))] px-4 py-2 text-[11px] shadow-(--shadow-soft)">
+                <span className="size-2 rounded-full bg-(--brand-yellow) shadow-[0_0_24px_var(--brand-yellow)]" />
+                <span className="font-mono uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
+                  Multi-Exam Computer-Based Testing Platform
+                </span>
+              </div>
 
-          {/* ── LEFT ── */}
-          <div className="flex flex-col">
-            {/* Section label */}
-            {/* <p className="font-mono text-[clamp(0.5rem,0.85vw,0.6rem)] tracking-[0.32em] uppercase text-[var(--brand-yellow-dark)] mb-[clamp(12px,2.5vh,20px)] animate-in fade-in slide-in-from-bottom-2 duration-500 delay-150">
-              // Q.01 &nbsp;·&nbsp; Section: Launch &nbsp;·&nbsp; Marks: ∞
-            </p> */}
+              <div className="space-y-6">
+                <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[hsl(var(--muted-foreground))]">
+                  // premium launch for students and institutes
+                </p>
+                <h1 className="max-w-[14ch] text-5xl font-semibold leading-[0.88] tracking-[-0.07em] sm:text-6xl lg:text-7xl xl:text-8xl">
+                  <span className="block">Built for Serious</span>
+                  <span className="block">Exam Practice.</span>
+                  <span className="block">Coming Soon.</span>
+                </h1>
+              </div>
 
-            {/* Headline */}
-            <div className="overflow-hidden">
-              <h1 className="font-mono font-semibold text-[clamp(2.6rem,8vw,7.5rem)] leading-[0.93] tracking-tighter text-[hsl(var(--foreground))] animate-in slide-in-from-bottom-8 duration-700 delay-200">
-                Exam
-              </h1>
-            </div>
-            <div className="overflow-hidden">
-              <h1 className="font-mono font-semibold text-[clamp(2.6rem,8vw,7.5rem)] leading-[0.93] tracking-tighter text-[hsl(var(--foreground))] animate-in slide-in-from-bottom-8 duration-700 delay-300">
-                Platform
-              </h1>
-            </div>
-            <div className="overflow-hidden">
-              <h1
-                className="font-mono font-semibold text-[clamp(2.6rem,8vw,7.5rem)] leading-[0.93] tracking-tighter animate-in slide-in-from-bottom-8 duration-700 delay-500"
-                style={{
-                  color: "transparent",
-                  WebkitTextStroke: "2.5px hsl(var(--foreground))",
-                }}
-              >
-                Rebuilt.
-              </h1>
             </div>
 
-            {/* Description */}
-            <p className="mt-[clamp(16px,2.5vh,26px)] font-sans text-[clamp(0.75rem,1.1vw,0.92rem)] font-light leading-relaxed text-[hsl(var(--muted-foreground))] max-w-[420px] border-l-[3px] border-[var(--brand-yellow)] pl-[clamp(12px,1.5vw,18px)] animate-in fade-in duration-700 delay-700">
-              White-label testing infrastructure for coaching institutes &amp; EdTech companies —
-              GATE-style exams, student management, and live monitoring under your own brand.
-            </p>
+            <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 lg:pt-4">
+              <div className="mx-auto w-full max-w-135">
+                <Image
+                  src="/hero.png"
+                  alt="Proctera hero interface preview"
+                  width={1200}
+                  height={1700}
+                  priority
+                  className="h-auto w-full object-contain lg:-translate-y-7"
+                />
+              </div>
+            </div>
+          </section>
 
-            {/* Services */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-[clamp(16px,2.5vh,26px)] animate-in fade-in duration-700 delay-[800ms]">
-              {SERVICES.map((svc) => (
+          <div className="mx-auto w-full max-w-3xl animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <Card className="brand-surface border border-[hsl(var(--border))] shadow-(--shadow-soft)">
+              <CardHeader className="space-y-3 p-5 sm:p-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
+                  // Launch timer
+                </p>
+                <CardTitle className="text-xl text-[hsl(var(--foreground))]">
+                  Coming Soon Countdown
+                </CardTitle>
+                <CardDescription className="text-sm leading-6 text-[hsl(var(--muted-foreground))]">
+                  A clear launch timer placed right after the hero so visitors can see it immediately.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6">
+                <Countdown />
+              </CardContent>
+            </Card>
+          </div>
+
+          <section className="space-y-8 animate-in fade-in duration-700">
+            <div className="premium-divider" aria-hidden />
+
+            <div id="features" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {SERVICES.map((service) => (
                 <Card
-                  key={svc.tag}
-                  className="group hover:bg-[hsl(var(--foreground))] hover:border-[hsl(var(--foreground))] transition-colors duration-200 cursor-default"
+                  key={service.tag}
+                  className="brand-surface group overflow-hidden border border-[hsl(var(--border))] shadow-(--shadow-soft) transition-transform duration-300 hover:-translate-y-1"
                 >
-                  <CardHeader className="pb-2 p-4">
-                    <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-[var(--brand-yellow-dark)] group-hover:text-[var(--brand-yellow)] mb-1">
-                      {svc.tag}
-                    </p>
-                    <CardTitle className="flex items-center gap-2 group-hover:text-[var(--brand-bg)]">
-                      <svc.icon size={14} className="shrink-0 text-[var(--brand-yellow-dark)] group-hover:text-[var(--brand-yellow)]" />
-                      {svc.title}
+                  <CardHeader className="space-y-4 p-5 sm:p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-(--brand-yellow)/12 text-(--brand-yellow-dark) transition-transform duration-300 group-hover:scale-105">
+                        <service.icon size={18} />
+                      </div>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[hsl(var(--muted-foreground))]">
+                        {service.tag}
+                      </span>
+                    </div>
+                    <CardTitle className="text-lg leading-snug tracking-tight text-[hsl(var(--foreground))]">
+                      {service.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="p-4 pt-0">
-                    <CardDescription className="group-hover:text-[hsl(var(--muted))]">
-                      {svc.desc}
+                  <CardContent className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6">
+                    <CardDescription className="text-sm leading-6 text-[hsl(var(--muted-foreground))]">
+                      {service.desc}
                     </CardDescription>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
-            {/* Contact CTA */}
-            <div className="mt-[clamp(16px,2.5vh,26px)] animate-in fade-in duration-700 delay-[900ms]">
-              <p className="font-mono text-[clamp(0.48rem,0.8vw,0.55rem)] tracking-[0.28em] uppercase text-[hsl(var(--muted-foreground))] mb-3">
-                // Interested? Reach out directly
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {FOUNDERS.map((f) => (
-                  <a
-                    key={f.email}
-                    href={`mailto:${f.email}`}
-                    className="group flex items-center gap-3 border-2 border-[hsl(var(--border))] px-4 py-2.5 hover:bg-[var(--brand-yellow)] hover:border-[var(--brand-yellow)] transition-colors duration-200 no-underline"
-                  >
-                    <Image
-                      src={f.image}
-                      alt={f.name}
-                      width={28}
-                      height={28}
-                      className="size-7 rounded-full object-cover border-2 border-[hsl(var(--border))] group-hover:border-[var(--brand-black)] shrink-0"
-                    />
-                    <div>
-                      <p className="font-mono font-semibold text-[11px] tracking-wide text-[hsl(var(--foreground))] group-hover:text-[var(--brand-black)]">
-                        {f.name}
-                      </p>
-                      <p className="font-sans text-[10px] text-[hsl(var(--muted-foreground))] group-hover:text-[var(--brand-black)] truncate max-w-[180px]">
-                        {f.email}
-                      </p>
+            <div className="grid gap-4 lg:grid-cols-2">
+              <Card className="brand-surface border border-[hsl(var(--border))] shadow-(--shadow-soft)">
+                <CardHeader className="space-y-3 p-5 sm:p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
+                    // Current build scope
+                  </p>
+                  <CardTitle className="text-xl text-[hsl(var(--foreground))]">
+                    What Is Ready Right Now
+                  </CardTitle>
+                  <CardDescription className="text-sm leading-6 text-[hsl(var(--muted-foreground))]">
+                    We are finalizing the launch baseline with stable exam flow, admin controls,
+                    and structured data visibility.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="grid gap-3 p-5 pt-0 sm:p-6 sm:pt-0">
+                  {[
+                    "Real-time CBT interface prototype with timed exam behavior.",
+                    "Question pattern coverage for MCQ, MSQ, and numerical answers.",
+                    "Institution-side creation workflow and batch structuring model.",
+                    "Performance analytics framework and dashboard foundations.",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="brand-surface-soft flex items-start gap-3 rounded-[20px] border border-[hsl(var(--border))] px-4 py-3"
+                    >
+                      <ShieldCheck size={15} className="mt-0.5 shrink-0 text-(--brand-yellow-dark)" />
+                      <p className="text-sm text-[hsl(var(--muted-foreground))]">{item}</p>
                     </div>
-                    <Mail size={13} className="text-[hsl(var(--muted-foreground))] group-hover:text-[var(--brand-black)] ml-auto shrink-0" />
-                  </a>
-                ))}
-              </div>
+                  ))}
+                </CardContent>
+              </Card>
+
+              <Card className="brand-surface border border-[hsl(var(--border))] shadow-(--shadow-soft)">
+                <CardHeader className="space-y-3 p-5 sm:p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[hsl(var(--muted-foreground))]">
+                    // Next release wave
+                  </p>
+                  <CardTitle className="text-xl text-[hsl(var(--foreground))]">
+                    What Ships In Early Access
+                  </CardTitle>
+                  <CardDescription className="text-sm leading-6 text-[hsl(var(--muted-foreground))]">
+                    Early users will get full workflow validation before public release,
+                    with direct iteration from real usage feedback.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3 px-5 pb-5 pt-0 sm:px-6 sm:pb-6">
+                  {[
+                    "Closed beta onboarding for selected institutes and student groups.",
+                    "Launch analytics reports with section and attempt-level depth.",
+                    "Improved anti-cheating guardrails and scheduling reliability.",
+                    "Dedicated onboarding support from the Proctera founding team.",
+                  ].map((line) => (
+                    <div
+                      key={line}
+                      className="brand-surface-soft flex items-start gap-3 rounded-[18px] border border-[hsl(var(--border))] px-4 py-3 text-sm text-[hsl(var(--muted-foreground))]"
+                    >
+                      <ShieldCheck size={16} className="mt-0.5 shrink-0 text-(--brand-yellow-dark)" />
+                      <span>{line}</span>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
             </div>
-          </div>
 
-          {/* ── RIGHT ── */}
-          <div className="flex h-full flex-col items-start gap-5 animate-in fade-in duration-700 delay-500 ">
-            <Countdown />
-            {/* Countdown */}
-          
-
-            {/* Founders */}
-            {/* <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[hsl(var(--muted-foreground))] mb-2">
-                // Founders
-              </p>
-              <div className="flex flex-col gap-2">
-                {FOUNDERS.map((f) => (
-                  <Card key={f.name} className="p-3">
-                    <div className="flex items-center gap-3">
-                      <Image
-                        src={f.image}
-                        alt={f.name}
-                        width={32}
-                        height={32}
-                        className="size-8 rounded-full object-cover border-2 border-[hsl(var(--border))] shrink-0"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-mono font-semibold text-[11px] tracking-wide text-[hsl(var(--foreground))]">
-                          {f.name}
-                        </p>
-                        <div className="flex gap-3 mt-1">
-                          <a
-                            href={`mailto:${f.email}`}
-                            className="flex items-center gap-1 font-mono text-[9px] tracking-widest uppercase text-[hsl(var(--muted-foreground))] hover:text-[var(--brand-yellow-dark)] transition-colors"
-                          >
-                            <Mail size={9} />
-                            Email
-                          </a>
-                          <a
-                            href={f.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1 font-mono text-[9px] tracking-widest uppercase text-[hsl(var(--muted-foreground))] hover:text-[var(--brand-yellow-dark)] transition-colors"
-                          >
-                            <Linkedin size={9} />
-                            LinkedIn
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div> */}
-
-            {/* Pills */}
-            {/* <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[hsl(var(--muted-foreground))] mb-2">
-                // Features
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {[
-                  "GATE 2026 UI",
-                  "Multi-Tenant",
-                  "LaTeX · MSQ · NAT",
-                  "Server-Side Timer",
-                  "Live Monitoring",
-                  "Role-Based Access",
-                ].map((tag, i) => (
-                  <Badge
-                    key={tag}
-                    variant={i < 2 ? "default" : "outline"}
-                    className="font-mono text-[9px] tracking-widest rounded-none"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </div> */}
-          </div>
+          </section>
         </main>
 
-        {/* FOOTER */}
-        <footer className="animate-in fade-in duration-500 delay-1000">
-          <Separator className="mb-[clamp(12px,2vw,18px)]" />
-          <div className="flex items-end justify-between flex-wrap gap-3">
-            <div className="flex gap-[clamp(12px,2vw,24px)] flex-wrap">
-              {[
-                { label: "GitHub", href: "#" },
-                { label: "Docs", href: "#" },
-                { label: "Contact", href: `mailto:${FOUNDERS[0].email}` },
-              ].map((l) => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  className="flex items-center gap-1 font-mono text-[clamp(0.48rem,0.78vw,0.56rem)] tracking-[0.22em] uppercase text-[hsl(var(--muted-foreground))] hover:text-[var(--brand-yellow-dark)] transition-colors"
-                >
-                  {l.label}
-                  <ArrowUpRight size={10} />
-                </a>
-              ))}
-            </div>
-            <div className="font-mono text-[clamp(0.42rem,0.62vw,0.5rem)] tracking-[0.16em] uppercase text-[hsl(var(--muted-foreground))] text-right leading-relaxed">
-              B2B White-Label · Institutes → Batches → Students
-              <br />
-              <span className="opacity-60">© 2025 Proctera. All rights reserved.</span>
-            </div>
+        <footer className="pb-2 pt-6 animate-in fade-in duration-700 delay-300">
+          <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.32em] text-[hsl(var(--muted-foreground))]">
+            // Interested? Reach out directly
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-2">
+            {FOUNDERS.map((founder) => (
+              <a
+                key={founder.email}
+                href={`mailto:${founder.email}`}
+                className="brand-surface group flex items-center justify-between gap-4 rounded-[22px] border border-[hsl(var(--border))] px-4 py-4 transition-transform duration-300 hover:-translate-y-0.5"
+              >
+                <div className="flex min-w-0 items-center gap-4">
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-[hsl(var(--border))] bg-[hsl(var(--muted))]">
+                    <Image
+                      src={founder.image}
+                      alt={founder.name}
+                      fill
+                      sizes="56px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold tracking-tight text-[hsl(var(--foreground))] sm:text-base">
+                      {founder.name}
+                    </p>
+                    <p className="truncate font-mono text-[11px] text-[hsl(var(--muted-foreground))] sm:text-[12px]">
+                      {founder.email}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[hsl(var(--border))] text-[hsl(var(--muted-foreground))] transition-colors duration-300 group-hover:text-[hsl(var(--foreground))]">
+                  <ArrowUpRight size={15} />
+                </div>
+              </a>
+            ))}
           </div>
         </footer>
 

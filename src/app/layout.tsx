@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { Funnel_Display, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-sans",
+const funnelDisplay = Funnel_Display({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -43,7 +44,7 @@ export default function RootLayout({
           data-website-id="03096162-5309-4ee7-b642-06e9fe274618"
         />
       </head>
-      <body className={`${inter.variable} ${ibmPlexMono.variable} antialiased`}>
+      <body className={`${funnelDisplay.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>

@@ -24,15 +24,15 @@ function compute(): TimeLeft {
 
 function Cell({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
   return (
-    <div className="border border-[hsl(var(--border))] p-4 text-center">
+    <div className="flex flex-col items-center justify-center border border-[hsl(var(--border))] px-3 py-3 text-center sm:px-4 sm:py-4">
       <span
-        className={`font-mono font-semibold text-3xl md:text-4xl tracking-tighter block leading-none ${
-          accent ? "text-[var(--brand-yellow-dark)]" : "text-[hsl(var(--foreground))]"
+        className={`block font-mono text-[22px] font-semibold leading-none tracking-tight sm:text-[28px] md:text-[34px] ${
+          accent ? "text-(--brand-yellow-dark)" : "text-[hsl(var(--foreground))]"
         }`}
       >
         {value}
       </span>
-      <span className="font-mono text-[10px] tracking-widest uppercase text-[hsl(var(--muted-foreground))] mt-1 block">
+      <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.24em] text-[hsl(var(--muted-foreground))] sm:text-[10px]">
         {label}
       </span>
     </div>
@@ -49,20 +49,20 @@ export function Countdown() {
   }, []);
 
   return (
-    <div className="w-full mt-10">
+    <div className="w-full">
       <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[hsl(var(--muted-foreground))] mb-2 text-right">
         // Time to launch
       </p>
-      <div className="grid grid-cols-2 border-2 border-[hsl(var(--border))] bg-[var(--brand-bg2)] dark:bg-[hsl(var(--card))]">
+      <div className="grid grid-cols-4 overflow-hidden rounded-[22px] border border-[hsl(var(--border))] bg-(--brand-bg2) dark:bg-[hsl(var(--card))]">
         <Cell value={time?.days ?? "--"} label="Days" />
         <Cell value={time?.hours ?? "--"} label="Hours" />
         <Cell value={time?.minutes ?? "--"} label="Min" />
         <Cell value={time?.seconds ?? "--"} label="Sec" accent />
       </div>
       {/* Progress bar */}
-      <div className="border-2 border-t-0 border-[hsl(var(--border))] h-1.5 bg-[hsl(var(--muted))] overflow-hidden">
+      <div className="h-1 border border-t-0 border-[hsl(var(--border))] bg-[hsl(var(--muted))] overflow-hidden rounded-b-[22px]">
         <div
-          className="h-full bg-[var(--brand-yellow)]"
+          className="h-full bg-(--brand-yellow)"
           style={{ width: "100%", animation: "drain 3628800s linear forwards" }}
         />
       </div>
